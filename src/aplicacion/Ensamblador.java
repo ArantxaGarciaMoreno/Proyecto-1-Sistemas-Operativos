@@ -1,6 +1,12 @@
 package aplicacion;
-
-
-public class Ensamblador {
+import java.util.concurrent.Semaphore;
+/* Area de consumidores
+*
+*/
+public class Ensamblador extends Thread{
+    
+    
+    
+    
     
 }
