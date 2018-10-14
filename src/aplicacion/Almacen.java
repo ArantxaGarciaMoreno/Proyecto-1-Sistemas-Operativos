@@ -2,22 +2,22 @@ package aplicacion;
 
 public class Almacen {
 
-    int[] vecAlmacen;
-    int size;
-    int apuntadorPro = 0;
-    int apuntadorEns = 0;
+    private int[] almacen;
+    private int size;
+    private int apuntadorPro = 0;
+    private int apuntadorEns = 0;
 
     public Almacen(int size) {
         this.size = size;
-        this.vecAlmacen = new int[size];
+        this.almacen = new int[size];
         for (int i = 0; i < this.size; i++) {
-            this.vecAlmacen[i] = 0;
+            this.almacen[i] = 0;
         }
 
     }
 
     public int getVecAlmacen(int i) {
-        return vecAlmacen[i];
+        return almacen[i];
     }
 
     public int getSize() {
@@ -25,16 +25,16 @@ public class Almacen {
     }
 
     public int[] getVecAlmacen() {
-        return vecAlmacen;
+        return almacen;
     }
 
     public void setVec(int i, int val) {
-        this.vecAlmacen[i] = val;
+        this.almacen[i] = val;
     }
 
     public void vaciar() {
         for (int i = 0; i < size; i++) {
-            vecAlmacen[i] = 0;
+            almacen[i] = 0;
         }
 
     }
