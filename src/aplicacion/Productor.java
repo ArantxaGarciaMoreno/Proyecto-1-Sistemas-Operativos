@@ -39,7 +39,9 @@ public class Productor extends Thread{
         } catch (InterruptedException ex) {
             Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
         }
-          /* 
+          /*
+        
+        
         Impresion a consola de la prepa:
         try {
              //   sI.acquire();

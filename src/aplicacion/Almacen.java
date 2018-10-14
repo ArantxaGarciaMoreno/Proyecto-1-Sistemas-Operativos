@@ -21,11 +21,19 @@ public class Almacen {
         return size;
     }
 
+    public int[] getVecAlmacen() {
+        return vecAlmacen;
+    }
+
+   
+    
+    
+    
  public void setVec(int i, int val) {
         this.vecAlmacen[i] = val;
     }
-    
-    //comrpobar si es necesario 
+ 
+  
     public void vaciar(){
         for(int i=0; i<size; i++){
            vecAlmacen[i]=0;
