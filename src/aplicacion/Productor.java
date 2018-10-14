@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 
 public class Productor extends Thread {
 
-    private Almacen almacen;
+    private Almacen almacen;//buffer
     private Semaphore semPro;//semaforo para saber si hay espacio en el almacen
     private Semaphore semEns;//semaforo para saber si hay algo en el almacen
     private Semaphore semMutEx;//semaforo de exclusividad mutua
