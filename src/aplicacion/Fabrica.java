@@ -172,14 +172,8 @@ public class Fabrica {
     
     
     
-    
-
-    
-    
-            
-    
-    
-    
-    
-    
+/*    
+=======
+>>>>>>> parent of 690f47e... Merge branch 'Prueba' of https://github.com/ArantxaGarciaMoreno/Proyecto-1-Sistemas-Operativos into Prueba
+*/
 }
