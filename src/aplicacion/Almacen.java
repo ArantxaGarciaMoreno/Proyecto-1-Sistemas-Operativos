@@ -12,10 +12,10 @@ public class Almacen {
         this.almacen = new int[size];
         this.vaciar();
 
-        }
+    }
 
     public int getApuntadorPro() {
-        return apuntadorPro;
+        return this.apuntadorPro;
     }
 
     public void setApuntadorPro(int apuntadorPro) {
@@ -23,7 +23,7 @@ public class Almacen {
     }
 
     public int getApuntadorEns() {
-        return apuntadorEns;
+        return this.apuntadorEns;
     }
 
     public void setApuntadorEns(int apuntadorEns) {
@@ -31,15 +31,15 @@ public class Almacen {
     }
 
     public int getPieza(int i) {
-        return almacen[i];
+        return this.almacen[i];
     }
 
     public int getSize() {
-        return size;
+        return this.size;
     }
 
     public int[] getAlmacen() {
-        return almacen;
+        return this.almacen;
     }
 
     public void setPieza(int i, int val) {
