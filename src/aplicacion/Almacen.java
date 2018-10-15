@@ -10,13 +10,27 @@ public class Almacen {
     public Almacen(int size) {
         this.size = size;
         this.almacen = new int[size];
-        for (int i = 0; i < this.size; i++) {
-            this.almacen[i] = 0;
-        }
+        this.vaciar();
 
     }
 
-    public int getVecAlmacen(int i) {
+    public int getApuntadorPro() {
+        return apuntadorPro;
+    }
+
+    public void setApuntadorPro(int apuntadorPro) {
+        this.apuntadorPro = apuntadorPro;
+    }
+
+    public int getApuntadorEns() {
+        return apuntadorEns;
+    }
+
+    public void setApuntadorEns(int apuntadorEns) {
+        this.apuntadorEns = apuntadorEns;
+    }
+
+    public int getPieza(int i) {
         return almacen[i];
     }
 
@@ -24,17 +38,17 @@ public class Almacen {
         return size;
     }
 
-    public int[] getVecAlmacen() {
+    public int[] getAlmacen() {
         return almacen;
     }
 
-    public void setVec(int i, int val) {
+    public void setPieza(int i, int val) {
         this.almacen[i] = val;
     }
 
     public void vaciar() {
-        for (int i = 0; i < size; i++) {
-            almacen[i] = 0;
+        for (int i = 0; i < this.size; i++) {
+            this.almacen[i] = 0;
         }
 
     }
