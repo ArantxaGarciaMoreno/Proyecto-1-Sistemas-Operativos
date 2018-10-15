@@ -1,7 +1,10 @@
 package aplicacion;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import static java.lang.Double.parseDouble;
+import static java.lang.Integer.parseInt;
 import java.util.Scanner;
 import java.util.concurrent.Semaphore;
 import javax.swing.JTextField;
@@ -74,87 +77,88 @@ public class Fabrica {
     private int cantIniEns;
     private int cantMaxEns;
     
-    private FileReader archivo;
+  
     private Scanner sc;
     
+    // Algoritmo de lectura de TXT 
+    //NOTA IMPORTANTE: cambiar la direccion del archivo de texto seugun la pc***************
+     public void Leer() throws FileNotFoundException{
     
-    //revisar de nuevo
-    public void Leer() throws FileNotFoundException{
-    try{
-    archivo = new FileReader ("datos.txt");
-    sc= new Scanner(archivo);
-        while
-        (sc.hasNextDouble()== false) 
-         sc.next();
-                    this.tiempo = sc.nextDouble();
-                     sc.nextLine();
-        while
-        (sc.hasNextInt()== false) 
-              sc.next();
-                    this.cantDias= sc.nextInt();
-                    sc.nextLine();
-                    
-        while
-        (sc.hasNextInt()== false)
-             sc.next();        
-                     this.capMaxAlBat =sc.nextInt();
-                      sc.nextLine();
-        while
-        (sc.hasNextInt()== false)
-             sc.next();  
-                      this.capMaxAlPant =sc.nextInt();
-                       sc.nextLine();
-         while
-        (sc.hasNextInt()== false)
-               sc.next();
-                      this.capMaxAlCabl=sc.nextInt(); 
-                      sc.nextLine();
-         while
-        (sc.hasNextInt()== false)
-               sc.next();
-                      this.capMaxAlCabl=sc.nextInt(); 
-                      sc.nextLine();
-          while
-        (sc.hasNextInt()== false)
-               sc.next();
-                      
-                      this.cantIniPBat =sc.nextInt();
-                      sc.nextLine();
-                      
-        while
-        (sc.hasNextInt()== false)
-               sc.next();
-                    
-                      this.cantIniPPant =sc.nextInt();
-                      sc.nextLine();
-                                   
-        while
-        (sc.hasNextInt()== false)
-               sc.next();
-                      this.cantIniPCabl=sc.nextInt(); 
-                      sc.nextLine();
-                                   
-        while
-        (sc.hasNextInt()== false)
-                        sc.next();
-                         this.cantIniEns=sc.nextInt();
-                        sc.nextLine();
-         while
-        (sc.hasNextInt()== false)
-                        sc.next();    
-               this.cantMaxEns=sc.nextInt();
+    
+        
+     sc= new Scanner(new File ("C:\\Users\\Sabrina\\Documents\\GitHub\\Proyecto-1-Sistemas-Operativos\\src\\aplicacion\\datos.txt"));
+    
+     String linea = sc.nextLine();
+     String basura;
+        this.tiempo = parseDouble(linea.substring(46,48).trim());
+        linea = sc.nextLine();
+        System.out.println(this.tiempo);
+        
+        this.cantDias = parseInt(linea.substring(46,48).trim());
+        linea = sc.nextLine();
+        System.out.println(this.cantDias);
+        
+        this.capMaxAlBat = parseInt(linea.substring(46,48).trim());
+        linea = sc.nextLine();
+        System.out.println(this.capMaxAlBat);
+        
+        this.capMaxAlPant = parseInt(linea.substring(46,48).trim());
+        linea = sc.nextLine();
+        System.out.println(this.capMaxAlPant);
+        
+        this.capMaxAlCabl = parseInt(linea.substring(46,48).trim());
+        linea = sc.nextLine();
+        System.out.println(this.capMaxAlCabl);
+        
+        this.cantIniPBat = parseInt(linea.substring(46,48).trim());
+        linea = sc.nextLine();
+        System.out.println(this.cantIniPBat);
+        
+        this.cantIniPPant = parseInt(linea.substring(46,48).trim());
+        linea = sc.nextLine();
+        System.out.println(this.cantIniPPant);
+        
+        this.cantIniPCabl = parseInt(linea.substring(46,48).trim());
+        linea = sc.nextLine();
+        System.out.println(this.cantIniPCabl);
+        
+        this.cantMaxPBat = parseInt(linea.substring(46,48).trim());
+        linea = sc.nextLine();
+        System.out.println(this.cantMaxPBat);
+        
+        this.cantMaxPPant = parseInt(linea.substring(46,48).trim());
+        linea = sc.nextLine();
+        System.out.println(this.cantMaxPPant);
+        
+        this.cantMaxPCabl = parseInt(linea.substring(46,48).trim());
+        linea = sc.nextLine();
+        System.out.println(this.cantMaxPCabl);
+        
+        this.cantIniEns = parseInt(linea.substring(46,48).trim());
+        linea = sc.nextLine();
+        System.out.println(this.cantIniEns);
+        
+        this.cantMaxEns = parseInt(linea.substring(46,48).trim());
+        
+        System.out.println(this.cantMaxEns);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+  
+       
    
-        
-            
-        
-            sc.close();
+   
     
-            }catch (java.util.NoSuchElementException S) {
-                    sc.close();
-                    
-                    System.out.println("ERROR");
-                 
-                }
+   
+      
+
+
     }
     
     
