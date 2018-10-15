@@ -1,0 +1,13 @@
+Tiempo (segundos) de un día en el programa: 4
+Cantidad de días entre despachos: 5
+Capacidad máxima de almacen de baterias: 25
+Capacidad máxima de almacen de pantallas:30
+Capacidad máxima de almacen de cables: 35
+Cantidad inicial de productores de baterias: 2
+Cantidad inicial de productores de pantallas: 3
+Cantidad inicial de productores de cables:1
+Cantidad máxima de productores de baterias: 4
+Cantidad máxima de productores de pantallas: 8
+Cantidad máxima de productores de cables: 3
+La cantidad inicial de ensambladores: 1
+La cantidad máxima de ensambladores: 5
