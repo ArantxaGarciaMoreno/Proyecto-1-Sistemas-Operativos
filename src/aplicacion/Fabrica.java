@@ -27,9 +27,9 @@ public class Fabrica {
     private Almacen almacenPan;
     private Almacen almacenCab;
     //Vectores de productores de cada tipo
-    private Productor[] proBat;
-    private Productor[] proPan;
-    private Productor[] proCab;
+    private Productor proBat[];
+    private Productor proPan[];
+    private Productor proCab[];
     //Vector de ensambladores de la fabrica (consumidores)
     private Ensamblador ensambladores[];
     //JTextField de la interfaz que seran modificados a los largo de la simulacion

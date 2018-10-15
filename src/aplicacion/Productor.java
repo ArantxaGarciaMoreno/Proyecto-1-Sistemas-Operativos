@@ -4,24 +4,28 @@ import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/* Area de Productores
+*
+ */
 public class Productor extends Thread {
 
-    private Almacen almacen;//buffer
+    private Almacen almacen;
     private Semaphore semPro;//semaforo para saber si hay espacio en el almacen
     private Semaphore semEns;//semaforo para saber si hay algo en el almacen
     private Semaphore semMutEx;//semaforo de exclusividad mutua
-    private int tiempoProduccion;//tiempo que tarda en producir 1 unidad
-    private boolean fired;//boolean para saber si un productor ha sido despedido
-    private String producto;//nombre de la parte del celular que produce
+    private int tiempoProduccion;//tiempo que tarda en producir
+    private boolean fired;
+    // private Semaphore sI;//SEmaforo de impresion a consola (se ajustará a la interfaz)
+    private int apuntaP;//apuntador de los productores
+    private int val;
 
-    public Productor(Almacen a, Semaphore sP, Semaphore sE, Semaphore sMutEx, int tP, boolean fired, String product) {
-        this.almacen = a;
-        this.semPro = sP;
-        this.semEns = sE;
-        this.semMutEx = sMutEx;
-        this.tiempoProduccion = tP;
-        this.fired = fired;
-        this.producto = product;
+    public Productor(Almacen a, Semaphore sP, Semaphore sC, Semaphore sE, int apuntP, int val, Semaphore sI) {
+        this.almacen = almacen;
+        this.semPro = semPro;
+        this.semEns = semEns;
+        this.semMutEx = semMutEx;
+        this.apuntaP = apuntP;
+        this.val = val;
 
     }
 
@@ -31,8 +35,8 @@ public class Productor extends Thread {
             try {
                 semPro.acquire();
                 semMutEx.acquire();
-                //almacen.setVec(apuntaP, val);
-                //apuntaP = (apuntaP + 1) % almacen.getSize();
+                almacen.setVec(apuntaP, val);
+                apuntaP = (apuntaP + 1) % almacen.getSize();
                 semEns.release();
                 semMutEx.release();
             } catch (InterruptedException ex) {
