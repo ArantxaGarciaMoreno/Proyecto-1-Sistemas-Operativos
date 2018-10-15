@@ -4,6 +4,7 @@ import java.util.concurrent.Semaphore;
 import javax.swing.JTextField;
 
 public class Cronometrador extends Thread {
+
     private Semaphore semContMutEx;//Semaforo para establecer exclusividad mutua entre el cronometrador y el gerente
     private int cont;//contador
     private int duracionDia;//tiempo en segundos que dura un dia en el programa

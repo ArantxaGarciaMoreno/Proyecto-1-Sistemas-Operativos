@@ -27,9 +27,9 @@ public class Fabrica {
     private Almacen almacenPan;
     private Almacen almacenCab;
     //Vectores de productores de cada tipo
-    private Productor proBat[];
-    private Productor proPan[];
-    private Productor proCab[];
+    private Productor[] proBat;
+    private Productor[] proPan;
+    private Productor[] proCab;
     //Vector de ensambladores de la fabrica (consumidores)
     private Ensamblador ensambladores[];
     //JTextField de la interfaz que seran modificados a los largo de la simulacion
@@ -61,119 +61,83 @@ public class Fabrica {
 // valores que se leen desde el archivo de texto 
     private double tiempo;
     private int cantDias;
-    
+
     private int capMaxAlBat;
     private int capMaxAlPant;
     private int capMaxAlCabl;
-    
+
     private int cantIniPBat;
     private int cantIniPPant;
     private int cantIniPCabl;
-    
+
     private int cantMaxPBat;
     private int cantMaxPPant;
     private int cantMaxPCabl;
-    
+
     private int cantIniEns;
     private int cantMaxEns;
-    
-  
+
     private Scanner sc;
-    
+
     // Algoritmo de lectura de TXT 
     //NOTA IMPORTANTE: cambiar la direccion del archivo de texto seugun la pc***************
-     public void Leer() throws FileNotFoundException{
-    
-    
-        
-     sc= new Scanner(new File ("C:\\Users\\Sabrina\\Documents\\GitHub\\Proyecto-1-Sistemas-Operativos\\src\\aplicacion\\datos.txt"));
-    
-     String linea = sc.nextLine();
-     String basura;
-        this.tiempo = parseDouble(linea.substring(46,48).trim());
+    public void Leer() throws FileNotFoundException {
+
+        sc = new Scanner(new File("C:\\Users\\Sabrina\\Documents\\GitHub\\Proyecto-1-Sistemas-Operativos\\src\\aplicacion\\datos.txt"));
+
+        String linea = sc.nextLine();
+        String basura;
+        this.tiempo = parseDouble(linea.substring(46, 48).trim());
         linea = sc.nextLine();
         System.out.println(this.tiempo);
-        
-        this.cantDias = parseInt(linea.substring(46,48).trim());
+
+        this.cantDias = parseInt(linea.substring(46, 48).trim());
         linea = sc.nextLine();
         System.out.println(this.cantDias);
-        
-        this.capMaxAlBat = parseInt(linea.substring(46,48).trim());
+
+        this.capMaxAlBat = parseInt(linea.substring(46, 48).trim());
         linea = sc.nextLine();
         System.out.println(this.capMaxAlBat);
-        
-        this.capMaxAlPant = parseInt(linea.substring(46,48).trim());
+
+        this.capMaxAlPant = parseInt(linea.substring(46, 48).trim());
         linea = sc.nextLine();
         System.out.println(this.capMaxAlPant);
-        
-        this.capMaxAlCabl = parseInt(linea.substring(46,48).trim());
+
+        this.capMaxAlCabl = parseInt(linea.substring(46, 48).trim());
         linea = sc.nextLine();
         System.out.println(this.capMaxAlCabl);
-        
-        this.cantIniPBat = parseInt(linea.substring(46,48).trim());
+
+        this.cantIniPBat = parseInt(linea.substring(46, 48).trim());
         linea = sc.nextLine();
         System.out.println(this.cantIniPBat);
-        
-        this.cantIniPPant = parseInt(linea.substring(46,48).trim());
+
+        this.cantIniPPant = parseInt(linea.substring(46, 48).trim());
         linea = sc.nextLine();
         System.out.println(this.cantIniPPant);
-        
-        this.cantIniPCabl = parseInt(linea.substring(46,48).trim());
+
+        this.cantIniPCabl = parseInt(linea.substring(46, 48).trim());
         linea = sc.nextLine();
         System.out.println(this.cantIniPCabl);
-        
-        this.cantMaxPBat = parseInt(linea.substring(46,48).trim());
+
+        this.cantMaxPBat = parseInt(linea.substring(46, 48).trim());
         linea = sc.nextLine();
         System.out.println(this.cantMaxPBat);
-        
-        this.cantMaxPPant = parseInt(linea.substring(46,48).trim());
+
+        this.cantMaxPPant = parseInt(linea.substring(46, 48).trim());
         linea = sc.nextLine();
         System.out.println(this.cantMaxPPant);
-        
-        this.cantMaxPCabl = parseInt(linea.substring(46,48).trim());
+
+        this.cantMaxPCabl = parseInt(linea.substring(46, 48).trim());
         linea = sc.nextLine();
         System.out.println(this.cantMaxPCabl);
-        
-        this.cantIniEns = parseInt(linea.substring(46,48).trim());
+
+        this.cantIniEns = parseInt(linea.substring(46, 48).trim());
         linea = sc.nextLine();
         System.out.println(this.cantIniEns);
-        
-        this.cantMaxEns = parseInt(linea.substring(46,48).trim());
-        
-        System.out.println(this.cantMaxEns);
-        
-        
-        
-        
-        
-        
-        
-        
-        
-  
-       
-   
-   
-    
-   
-      
 
+        this.cantMaxEns = parseInt(linea.substring(46, 48).trim());
+
+        System.out.println(this.cantMaxEns);
 
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-/*    
-=======
->>>>>>> parent of 690f47e... Merge branch 'Prueba' of https://github.com/ArantxaGarciaMoreno/Proyecto-1-Sistemas-Operativos into Prueba
-*/
 }
