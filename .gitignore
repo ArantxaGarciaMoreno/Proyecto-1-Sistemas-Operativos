@@ -1,2 +1,5 @@
 /nbproject/private/
 /build/
+src/aplicacion/Cronometrador.java
+src/aplicacion/Ensamblador.java
+src/aplicacion/Fabrica.java
