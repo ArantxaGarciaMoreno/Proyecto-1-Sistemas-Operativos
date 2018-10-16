@@ -8,28 +8,27 @@ public class Gerente extends Thread{
     
     private Semaphore semContMutEx;//Semaforo para establecer exclusion mutua entre el cronometrador y el gerente
     private int cont;//contador***seccion critica¿?
-    private int diasDespacho;//cantidad de dias entre despachos ***Seccion critica que lee el gerente
+  
     private long tiempoDescanso;// tiempo de descanso del gerente
-    private JTextField statusCTextField;//TextField donde se muestra el status del gerente
+    private JTextField statusGTextField;//TextField donde se muestra el status del gerente
     
     private long rango;
     private int duracionDia;
     private long tiempoTrabajo;//tiempo que tarda el cronometrador en disminuir el contador en milisegundos para poder hacer el primer thread.sleep
-    private Almacen almacen;
+    private int cantCelulares;
     
-    private int diasAux; //auxiliar que guarda los dias de despacho iniciales
+
     
-    public Gerente(Semaphore semContMutEx, int cont, int diasDespacho, long tiempoDescanso, JTextField statusCTextField, long rango, int duracionDia, long tiempoTrabajo, Almacen almacen) {
+    public Gerente(Semaphore semContMutEx, int cont, long tiempoDescanso, JTextField statusGTextField, long rango, int duracionDia, long tiempoTrabajo, int cantCelulares) {
         this.semContMutEx = semContMutEx;
         this.cont = cont;
-        this.diasDespacho = diasDespacho;
-       this.diasAux = diasDespacho;
+      
         this.tiempoDescanso = tiempoDescanso;
-        this.statusCTextField = statusCTextField;
+        this.statusGTextField = statusGTextField;
         this.rango = rango;
         this.duracionDia = duracionDia;
         this.tiempoTrabajo = tiempoTrabajo;
-        this.almacen = almacen;
+        this.cantCelulares = cantCelulares;
         
         
         
@@ -54,23 +53,26 @@ public class Gerente extends Thread{
                 
                 if(this.cont ==0){//condicion de entrada a la seccion critica
                 
-                    almacen.vaciar();
-                    this.diasDespacho = diasAux;
-                    this.cont = this.diasDespacho;
-                    this.statusCTextField.setText("Despachando");
+                    this.statusGTextField.setText("Despachando");
                     Thread.sleep(this.tiempoTrabajo); 
+                    
+                    this.cantCelulares = 0;
+                  
+                  
+                    
+                  
                     this.semContMutEx.release();
                 
                 }else{
                 this.semContMutEx.release();
                 
                 Thread.sleep(this.tiempoDescanso);
-                this.statusCTextField.setText("Durmiendo");
+                this.statusGTextField.setText("Durmiendo");
                 } 
                     
                     
             } catch (Exception e) {
-                this.statusCTextField.setText("Excepcion");
+                this.statusGTextField.setText("Excepcion");
             }
         }
 
