@@ -20,13 +20,13 @@ public class Ensamblador extends Thread {
     private Semaphore semCabEns;//Semaforo para que los ensambladores sepan si hay cables en el almacen
     private Semaphore semCabMutEx;//Semaforo de exclusion mutua en el almacen de cables
     //Otros
-    private int duracionDia;
+    private double duracionDia;
     private long tiempoEnsamblaje;//Tiempo que tarda un ensamblador en ensamblar un celular
     private boolean fired;//Variable para determinar si el ensamblador esta despedido o no
     private int cantCelulares;//Cantidad de celulares ensamblados disponibles en la fabrica en el momento
     private JTextField cantCelularesTextField;//TextField en el que se muestran la cantidad de celulares ensamblados disponibles para despachar 
 
-    public Ensamblador(Semaphore semBatPro, Semaphore semBatEns, Semaphore semBatMutEx, Semaphore semPanPro, Semaphore semPanEns, Semaphore semPanMutEx, Semaphore semCabPro, Semaphore semCabEns, Semaphore semCabMutEx, Almacen almacenBat, Almacen almacenPan, Almacen almacenCab, boolean fired, int duracionDia, int cantCelulares, JTextField cantCelularesTextField) {
+    public Ensamblador(Semaphore semBatPro, Semaphore semBatEns, Semaphore semBatMutEx, Semaphore semPanPro, Semaphore semPanEns, Semaphore semPanMutEx, Semaphore semCabPro, Semaphore semCabEns, Semaphore semCabMutEx, Almacen almacenBat, Almacen almacenPan, Almacen almacenCab, boolean fired, double duracionDia, int cantCelulares, JTextField cantCelularesTextField) {
         this.semBatEns = semBatEns;
         this.semBatMutEx = semBatMutEx;
         this.semBatPro = semBatPro;
@@ -70,7 +70,7 @@ public class Ensamblador extends Thread {
     }
 
     public void run() {
-        this.tiempoEnsamblaje = this.duracionDia * 2000;
+        this.tiempoEnsamblaje = (long) (this.duracionDia * 2000);
         while (!this.fired) {
             try {
                 this.semBatEns.acquire(1);

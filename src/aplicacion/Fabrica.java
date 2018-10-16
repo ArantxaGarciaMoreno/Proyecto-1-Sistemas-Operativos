@@ -31,7 +31,14 @@ public class Fabrica {
     private Productor[] proPan;
     private Productor[] proCab;
     //Vector de ensambladores de la fabrica (consumidores)
-    private Ensamblador ensambladores[];
+    private Ensamblador[] ensambladores;
+    //Variables globales importantes
+    private int cantCelulares;//cantidad de celulares ensamblados en cualquier momento
+    private int cont;//dias para el despacho en cualquier momento
+    private int cantProBat;//cantidad de productores de baterias en cualquier momento
+    private int cantProPan;//cantidad de productores de pantallas en cualquier momento
+    private int cantProCab;//cantidad de productores de cables en cualquier momento
+    private int cantEns;//cantidad de ensambladores en la fabrica en cualquir momento
     //JTextField de la interfaz que seran modificados a los largo de la simulacion
     private JTextField cantBTextField;
     private JTextField cantPTextField;
@@ -44,21 +51,7 @@ public class Fabrica {
     private JTextField diasDespachoTextField;
     private JTextField statusCTextField;
     private JTextField statusGTextField;
-
-    public Fabrica(JTextField cantBTextField, JTextField cantPTextField, JTextField cantCTextField, JTextField cantETextField, JTextField cantPBTextField, JTextField cantPCTextField, JTextField cantPPTextField, JTextField cantCelularesTextField, JTextField diasDespachoTextField, JTextField statusCTextField, JTextField statusGTextField) {
-        this.cantBTextField = cantBTextField;
-        this.cantCTextField = cantCTextField;
-        this.cantPTextField = cantPTextField;
-        this.cantPBTextField = cantPBTextField;
-        this.cantPPTextField = cantPPTextField;
-        this.cantPCTextField = cantPCTextField;
-        this.cantETextField = cantETextField;
-        this.cantCelularesTextField = cantCelularesTextField;
-        this.diasDespachoTextField = diasDespachoTextField;
-        this.statusCTextField = statusCTextField;
-        this.statusGTextField = statusGTextField;
-    }
-// valores que se leen desde el archivo de texto 
+    // valores que se leen desde el archivo de texto 
     private double tiempo;
     private int cantDias;
 
@@ -79,11 +72,36 @@ public class Fabrica {
 
     private Scanner sc;
 
+    public Fabrica(JTextField cantBTextField, JTextField cantPTextField, JTextField cantCTextField, JTextField cantETextField, JTextField cantPBTextField, JTextField cantPCTextField, JTextField cantPPTextField, JTextField cantCelularesTextField, JTextField diasDespachoTextField, JTextField statusCTextField, JTextField statusGTextField) {
+        this.cantBTextField = cantBTextField;
+        this.cantCTextField = cantCTextField;
+        this.cantPTextField = cantPTextField;
+        this.cantPBTextField = cantPBTextField;
+        this.cantPPTextField = cantPPTextField;
+        this.cantPCTextField = cantPCTextField;
+        this.cantETextField = cantETextField;
+        this.cantCelularesTextField = cantCelularesTextField;
+        this.diasDespachoTextField = diasDespachoTextField;
+        this.statusCTextField = statusCTextField;
+        this.statusGTextField = statusGTextField;
+        try {
+            this.Leer();
+        } catch (Exception e) {
+            System.out.println("File not found");
+        }
+        this.almacenBat = new Almacen(this.capMaxAlBat);
+        this.almacenPan = new Almacen(this.capMaxAlPant);
+        this.almacenCab = new Almacen(this.capMaxAlCabl);
+        this.proBat = new Productor[this.cantMaxPBat];
+        this.proPan = new Productor[this.cantMaxPPant];
+        this.proCab = new Productor[this.cantMaxPCabl];
+    }
+
     // Algoritmo de lectura de TXT 
-    //NOTA IMPORTANTE: cambiar la direccion del archivo de texto seugun la pc***************
+    //NOTA IMPORTANTE: cambiar la direccion del archivo de texto segun la pc***************
     public void Leer() throws FileNotFoundException {
 
-        sc = new Scanner(new File("C:\\Users\\Sabrina\\Documents\\GitHub\\Proyecto-1-Sistemas-Operativos\\src\\aplicacion\\datos.txt"));
+        sc = new Scanner(new File("C:\\Users\\Aran_\\Documents\\NetBeansProjects\\PRO1SOArantxaGarcia_SabrinaGarcia\\src\\aplicacion\\datos.txt"));
 
         String linea = sc.nextLine();
         String basura;
