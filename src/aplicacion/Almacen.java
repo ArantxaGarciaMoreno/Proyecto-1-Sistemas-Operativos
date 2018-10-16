@@ -46,7 +46,7 @@ public class Almacen {
         this.almacen[i] = val;
     }
 
-    public void vaciar() {
+    public void vaciar() {   //no se si debemos cambiar esto por uno que solo reste 1 que seria "despachar" del gerente
         for (int i = 0; i < this.size; i++) {
             this.almacen[i] = 0;
         }
