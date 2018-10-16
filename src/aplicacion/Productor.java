@@ -28,15 +28,28 @@ public class Productor extends Thread {
      private long tiempoPro;//tiempo que controlara el sleep
      private long diasQTarda;//dias que tarda en producir 1 unidad
      
-    public void producir(int apuntadorProd) {
+    
+
+    public Productor(Almacen almacenProd, Semaphore pMutex, Semaphore semaProd, Semaphore semaEns, boolean fired, String producto, JTextField cantProd, double duracionDia, long diasQTarda) {
+        this.almacenProd = almacenProd;
+        this.pMutex = pMutex;
+        this.semaProd = semaProd;
+        this.semaEns = semaEns;
+        this.fired = fired;
+        this.producto = producto;
+        this.cantProd = cantProd;
+        this.duracionDia = duracionDia;
+       // this.tiempoPro = tiempoPro;
+        this.diasQTarda = diasQTarda;
+    }
+    
+     public void producir(int apuntadorProd) {
         if(this.almacenProd.getAlmacen()[apuntadorProd]==0){
         this.almacenProd.getAlmacen()[apuntadorProd] = 1;
         this.almacenProd.setApuntadorEns((apuntadorProd + 1) % this.almacenProd.getSize());}
         this.cantProd.setText(Integer.toString(this.getCant()));
         
     }
-    
-
     public boolean isFired() {
         return fired;
     }
