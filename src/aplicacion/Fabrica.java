@@ -101,7 +101,7 @@ public class Fabrica {
     //NOTA IMPORTANTE: cambiar la direccion del archivo de texto segun la pc***************
     public void Leer() throws FileNotFoundException {
 
-        sc = new Scanner(new File("C:\\Users\\Aran_\\Documents\\NetBeansProjects\\PRO1SOArantxaGarcia_SabrinaGarcia\\src\\aplicacion\\datos.txt"));
+        sc = new Scanner(new File("datos.txt"));
 
         String linea = sc.nextLine();
         String basura;
