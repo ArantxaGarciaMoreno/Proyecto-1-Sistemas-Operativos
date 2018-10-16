@@ -31,7 +31,7 @@ public class Cronometrador extends Thread {
 
         while (true) {
             try {
-                this.semContMutEx.acquire();
+                this.semContMutEx.acquire(1);
                 this.statusCTextField.setText("Trabajando");
                 Thread.sleep(this.tiempoTrabajo);
                 this.cont--;
@@ -39,12 +39,12 @@ public class Cronometrador extends Thread {
                     this.cont = this.diasDespacho;
                 }
                 this.diasDespachoTextField.setText(Integer.toString(this.cont));
-                this.semContMutEx.release();
+                this.semContMutEx.release(1);
                 this.statusCTextField.setText("Durmiendo");
                 Thread.sleep(this.tiempoDescanso);
 
             } catch (Exception e) {
-                this.statusCTextField.setText("Excepcion");
+                this.statusCTextField.setText("Exception");
             }
         }
 
